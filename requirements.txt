@@ -4,20 +4,29 @@ streamlit==1.54.0
 joblib==1.4.2
 shap==0.48.0
 
-# 强制限制在 NumPy 2.0 以下，防止旧版 matplotlib 和 shap 崩溃
-numpy>=1.26.4,<2.0.0
+# 满足最新 pyradiomics 的要求，允许使用 numpy 2.0 及以上版本
+# numpy>=1.26.4,<2.0.0
+numpy>=2.0.0
 
 pandas>=2.2.2
-matplotlib==3.7.1
+
+# 升级 matplotlib 以兼容 numpy 2.0 的底层 C-API，解决 _ARRAY_API 崩溃报错
+# matplotlib==3.7.1
+matplotlib>=3.9.0
 
 # 使用官方 GitHub 主分支最新代码修复 pyradiomics 安装 bug
 git+https://github.com/AIM-Harvard/pyradiomics.git
 
-# 解决旧版本依赖冲突
+# 解决旧版本 SimpleITK 依赖冲突
+# SimpleITK==2.3.1
 SimpleITK>=2.4.0
 
-# 纯 CPU 版本的深度学习框架，防止云端内存溢出
+# 纯 CPU 版本的深度学习框架，避免云端内存溢出
+# torch==2.6.0+cu126
 torch==2.6.0
+
+# 纯 CPU 版本的 torchvision
+# torchvision==0.21.0+cu126
 torchvision==0.21.0
 
 pillow==11.1.0
