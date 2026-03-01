@@ -2,12 +2,29 @@
 streamlit==1.54.0
 joblib==1.4.2
 shap==0.48.0
-numpy==1.26.4
-pandas==2.2.2
-matplotlib==3.7.1
-pyradiomics==3.0.1
-SimpleITK==2.3.1
-torch==2.6.0
-torchvision==0.21.0
-pillow==11.1.0
 
+# 释放 numpy 版本限制以适配 Python 3.10 预编译包
+# numpy==1.26.4
+numpy>=1.26.4
+
+# 释放 pandas 版本限制以适配 Python 3.10 预编译包
+# pandas==2.2.2
+pandas>=2.2.2
+
+matplotlib==3.7.1
+
+# 使用官方 GitHub 主分支最新代码，该版本修复了 numpy 构建依赖缺失的问题
+# pyradiomics==3.0.1
+git+https://github.com/AIM-Harvard/pyradiomics.git
+
+SimpleITK==2.3.1
+
+# 替换为纯 CPU 版本的 PyTorch，避免 Streamlit 内存溢出和找不到 CUDA 版本的报错
+# torch==2.6.0+cu126
+torch==2.6.0
+
+# 替换为纯 CPU 版本的 torchvision
+# torchvision==0.21.0+cu126
+torchvision==0.21.0
+
+pillow==11.1.0
