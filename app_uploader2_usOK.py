@@ -90,8 +90,4 @@ if st.button("featureEx & Predict"):
     except Exception as e:
         st.error(f"Processing Error: {str(e)}")
 
-"""
-    2026-2-14 05:03:28
-        conda activate py310brain
-        streamlit run /home/cc/ff_item/py310ML/_webApp_streamlit_Ants/app_uploader2_usOK.py
-"""
+
