@@ -1,4 +1,6 @@
+# 添加 CPU 版本的额外下载源，避免下载庞大的 CUDA 版本
 --extra-index-url https://download.pytorch.org/whl/cpu
+
 streamlit==1.54.0
 joblib==1.4.2
 shap==0.48.0
@@ -17,7 +19,9 @@ matplotlib==3.7.1
 # pyradiomics==3.0.1
 git+https://github.com/AIM-Harvard/pyradiomics.git
 
-SimpleITK==2.3.1
+# 解决依赖冲突：最新版 pyradiomics 要求 SimpleITK>=2.4.0
+# SimpleITK==2.3.1
+SimpleITK>=2.4.0
 
 # 替换为纯 CPU 版本的 PyTorch，避免 Streamlit 内存溢出和找不到 CUDA 版本的报错
 # torch==2.6.0+cu126
